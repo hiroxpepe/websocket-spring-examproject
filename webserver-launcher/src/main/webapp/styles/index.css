@@ -1,0 +1,62 @@
+/* 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+ 
+body {
+    font-size: 12px;
+    font-family: Arial, Helvetica, Sans-serif;
+}
+
+div.visitor-wrapper {
+    width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid 1px #CCC;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+div.visitor-wrapper-header {
+    padding: 5px;
+    text-align: center;
+    font-weight: bold;
+    background-color: lightgray;
+    border-top: solid 1px transparent;
+    border-radius: 5px 5px 0 0;
+    -webkit-border-radius: 5px 5px 0 0;
+    -moz-border-radius: 5px 5px 0 0;
+}
+
+span.feeling {
+   padding: 2px;
+   margin-right: 0.5em;
+   background-color: lemonchiffon;
+   border-radius: 2px;
+   -webkit-border-radius: 2px;
+   -moz-border-radius: 2px;
+}
+
+#visitor-feed {
+    height: 200px;
+    overflow: auto;
+    padding: 0;
+    margin: 0;
+}
+    #visitor-feed li {
+        list-style: none;
+        width: auto;
+        padding: 4px;
+        border-bottom: solid 1px silver;
+        margin: 0;
+        width: auto;
+    }
