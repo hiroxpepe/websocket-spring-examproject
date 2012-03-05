@@ -26,7 +26,6 @@ You will need to get Apache Maven.
 You will need to compile this example first.
   > cd {path to this README.txt directory!}
   > mvn compile
-  > mvn install
 
 You need to start the two servers. use the terminal of two.
 

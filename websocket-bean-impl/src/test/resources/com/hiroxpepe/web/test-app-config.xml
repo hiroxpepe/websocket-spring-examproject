@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+   <!-- the global observable object. -->
+   <bean id="observable"
+        class="com.hiroxpepe.web.MockSiteVisitorObservable">
+   </bean>
+
+    <!-- the domain object for test. -->
+    <bean id="siteVisitor"
+        class="com.hiroxpepe.web.MockSiteVisitor"
+        factory-method="newInstance"
+        scope="prototype">
+   </bean>
+   
+    <!-- the object for emulation of the data update. -->
+    <bean id="siteVisitorRunner"
+        class="com.hiroxpepe.web.MockSiteVisitorRunner">
+        <property name="observer" ref="siteVisiterObserver"/>
+    </bean>
+    <!-- a mock observer object. -->
+    <bean id="siteVisiterObserver"
+        class="com.hiroxpepe.web.MockSiteVisiterObserver">
+    </bean>
+
+</beans>

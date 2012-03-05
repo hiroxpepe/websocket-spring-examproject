@@ -29,7 +29,7 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
 public class SpringWebSocketServlet extends WebSocketServlet {
     
     private static final long serialVersionUID = -8712872385957386182L;
-
+   
     private ApplicationContext context;
     
     @Override

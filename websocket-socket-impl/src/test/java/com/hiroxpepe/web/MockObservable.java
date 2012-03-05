@@ -14,21 +14,17 @@
 
 package com.hiroxpepe.web;
 
+import java.util.Observable;
+
 /**
  * @author hiroxpepe
  */
-public interface SiteVisitor {
-
-    String getPerson();
-
-    void setPerson(String person);
-
-    String getCountry();
-
-    void setCountry(String country);
-    
-    String getFeeling();
-
-    void setFeeling(String feeling);
-
+public class MockObservable extends Observable {
+    @Override
+    public void notifyObservers(Object arg) {
+        String str = (String) arg;
+        setChanged();
+        super.notifyObservers(str);
+        clearChanged();
+    }
 }

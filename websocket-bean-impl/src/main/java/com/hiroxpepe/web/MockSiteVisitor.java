@@ -67,7 +67,7 @@ public class MockSiteVisitor implements SiteVisitor {
     
     public static MockSiteVisitor newInstance() {
         MockSiteVisitor visitor = new MockSiteVisitor();
-        visitor.setPerson(firstNames[random.nextInt(firstNames.length)] + " "  + lastNames[random.nextInt(lastNames.length)]);
+        visitor.setPerson(firstNames[random.nextInt(firstNames.length)] + " " + lastNames[random.nextInt(lastNames.length)]);
         visitor.setCountry(countries[random.nextInt(countries.length)]);
         visitor.setFeeling(feelings[random.nextInt(feelings.length)]);
         return visitor;

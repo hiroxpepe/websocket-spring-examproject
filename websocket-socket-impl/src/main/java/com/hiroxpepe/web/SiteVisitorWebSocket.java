@@ -15,85 +15,106 @@
 package com.hiroxpepe.web;
 
 import java.io.IOException;
-import java.util.Random;
-import java.util.Set;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.concurrent.CopyOnWriteArraySet;
 import javax.inject.Inject;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.eclipse.jetty.websocket.WebSocket;
 import org.springframework.context.ApplicationContext;
-import org.springframework.stereotype.Component;
 
 /**
  * @author hiroxpepe
  */
-@Component
-public class SiteVisitorWebSocket implements WebSocket.OnTextMessage {
+public class SiteVisitorWebSocket implements WebSocket.OnTextMessage, Observer {
+    
+    private static final Log LOG = LogFactory.getLog(SiteVisitorWebSocket.class);
     
     private final String SITE_VISITOR_BEAN_ID = "siteVisitor";
     
     @Inject
     private final ApplicationContext context = null;
     
-    private final Set<SiteVisitorWebSocket> webSockets = new CopyOnWriteArraySet<SiteVisitorWebSocket>();
-
-    private final Random random = new Random();
+    @Inject
+    private final Observable observable = null;
     
-    private final int maxInterval = 10000;
-    
-    private Timer timer = new Timer();
+    @Inject
+    private final CopyOnWriteArraySet<SiteVisitorWebSocket> webSockets = null;
     
     private WebSocket.Connection connection;
 
+    private boolean isConnect = false;
+        
     ///////////////////////////////////////////////////////////////////////////
     // public methods
     
     @Override
     public void onOpen(WebSocket.Connection connection) {
+        LOG.info("onOpen");
+        
         this.connection = connection;
+
+        // set myself, to the global websockets object.
         webSockets.add(this);
-        doOpen();
+
+        // set myself, to the global observable object.
+        observable.addObserver(this);
+
+        isConnect = true;
+        push();
     }
 
     @Override
     public void onMessage(String message) {
+        LOG.info("onMessage");
     }
 
     @Override
     public void onClose(int closeCode, String message) {
+        LOG.info("onClose");
+        
+        // remove myself, to the global websockets object.
         webSockets.remove(this);
-        timer.cancel();
-        timer = null;
+        
+        // remove myself, to the global observable object.
+        observable.deleteObserver(this);
     }
 
+    // this method be called from observable object.
+    @Override
+    public void update(Observable o, Object arg) {
+        LOG.info("update");
+        if (isConnect) {
+            push();
+        }
+    }
+    
     ///////////////////////////////////////////////////////////////////////////
     // private methods
     
-    private void doOpen() {
+    // to notify the information to all of websocket objects.
+    private void push() {
         try {
-            // create a new object. 
+            // get a domain object.
+            // TODO: need to change to factory object..
             SiteVisitor visitor = context.getBean(
                 SITE_VISITOR_BEAN_ID, SiteVisitor.class
             );
             
-            // set to the connection' message.
-            connection.sendMessage(
-                ObjectUtil.toJsonString(visitor)
-            );
-
-            // use timer..
-            timer.schedule(new TimerTask() {
-                @Override
-                public void run() {
-                    doOpen();
-                }},
-                random.nextInt(maxInterval)
-            );
+            // set a message to all of connections.
+            for (SiteVisitorWebSocket webSocket : webSockets) {
+                webSocket.connection.sendMessage(
+                    ObjectUtil.toJsonString(visitor)
+                );
+            }
         }
-        catch(IOException e) {
-            // TODO: do something..
+        catch(IOException ioe) {
+            LOG.error("error.");
+            throw new RuntimeException(ioe);
         }
     }
+
 }
+

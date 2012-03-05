@@ -14,21 +14,22 @@
 
 package com.hiroxpepe.web;
 
+import java.util.Observable;
+import java.util.Observer;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.stereotype.Component;
+
 /**
  * @author hiroxpepe
  */
-public interface SiteVisitor {
-
-    String getPerson();
-
-    void setPerson(String person);
-
-    String getCountry();
-
-    void setCountry(String country);
+public class MockSiteVisiterObserver implements Observer {
     
-    String getFeeling();
-
-    void setFeeling(String feeling);
-
+    private static final Log LOG = LogFactory.getLog(MockSiteVisiterObserver.class);
+    
+    @Override
+    public void update(Observable o, Object arg) {
+        LOG.debug("calld.");
+    }
 }

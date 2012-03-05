@@ -7,7 +7,7 @@
     <groupId>com.hiroxpepe</groupId>
     <artifactId>websocket-servlet</artifactId>
     <packaging>jar</packaging>
-    <version>0.1.0-SNAPSHOT</version>
+    <version>0.2.0-SNAPSHOT</version>
     <name>websocket-servlet</name>
 
     <properties>
