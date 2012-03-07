@@ -72,7 +72,7 @@ exam.VisitorSocket = {
 
 ///////////////////////////////////////////////////////////////////////////////
 /**
-* an entry class of the application.
+* the entry class of the application.
 */
 exam.Application = function(sender) {
     // the jQuery's way.
@@ -157,7 +157,7 @@ exam.Controller = window; {
         $("#cool_entry_feeling").click(function() {
             $("a.entry_feeling").css({"background-color": "silver"});
             $("#cool_entry_feeling").css({"background-color": "lemonchiffon"});
-        $("#cool_entry_feeling").focus();
+            $("#cool_entry_feeling").focus();
             $("#feel_param_hidden").val(":|");
         });
     }
