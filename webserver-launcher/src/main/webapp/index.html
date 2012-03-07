@@ -3,14 +3,49 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title>WebServer</title>
-        <link rel="stylesheet" href="styles/index.css" />
+        <link rel="stylesheet" href="styles/main.css" />
     </head>
     <body>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-        <script type="text/javascript" src="scripts/socketclient.js"></script>
-        <div class="visitor-wrapper">
-            <div class="visitor-wrapper-header">Website Visitors</div>
-            <ul id="visitor-feed"></ul>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="scripts/main.js"></script>
+        
+        <div id="content_wrapper" class="wrapper">
+            <div class="header">Website Visitors</div>
+            <div class="menu">
+                <a id="open_command" class="command">enter</a>
+            </div>
+            <ul class="feeds"></ul>
         </div>
+        
+        <div id="pad_wrapper" class="wrapper">
+            <input id="feel_param_hidden" class="hidden" type="hidden" value=""/>
+            <div class="menu">
+                <a id="close_command" class="command">close</a>
+            </div>
+            <table class="entry">
+                <tr>
+                    <td>First Name</td>
+                    <td><input id="first_name_text" type="text" size="8"/></td>
+                </tr>
+                <tr>
+                    <td>Last Name</td>
+                    <td><input id="last_name_text" type="text" size="8"/></td>
+                </tr>
+                <tr>
+                    <td class="entry_feeling_data">Feeling</td>
+                    <td class="entry_feeling_data">
+                        <a id="fine_entry_feeling" class="entry_feeling" title="fine">:)</a>
+                        <a id="sad_entry_feeling" class="entry_feeling" title="sad">:(</a>
+                        <a id="cool_entry_feeling" class="entry_feeling" title="cool">:|</a>
+                        <a id="wonder_entry_feeling" class="entry_feeling" title="wonder">:o</a>
+                    </td>
+                </tr>
+            </table>
+            <div class="tool">
+                <a id="send_command" class="command">send</a>
+            </div>
+        </div>
+        
     </body>
 </html>

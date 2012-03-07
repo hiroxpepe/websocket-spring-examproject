@@ -7,7 +7,7 @@
     <groupId>com.hiroxpepe</groupId>
     <artifactId>websocket-bean-impl</artifactId>
     <packaging>jar</packaging>
-    <version>0.2.0-SNAPSHOT</version>
+    <version>0.3.0-SNAPSHOT</version>
     <name>websocket-bean-impl</name>
 
     <properties>
@@ -23,7 +23,7 @@
         <dependency>
             <groupId>com.hiroxpepe</groupId>
             <artifactId>websocket-socket-impl</artifactId>
-            <version>0.2.0-SNAPSHOT</version>
+            <version>0.3.0-SNAPSHOT</version>
         </dependency>
         
         <!--///////////////////////////////////////////////////////////////////////////-->

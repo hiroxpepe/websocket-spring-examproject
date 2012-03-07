@@ -1,0 +1,141 @@
+/* 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+ 
+body {
+    font-size: 12px;
+    font-family: Arial, Helvetica, Sans-serif;
+    background-color: whitesmoke;
+}
+
+/* ************************************************************************* */
+
+div.wrapper {
+    width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    border: solid 1px silver;
+    border-radius: 5px;
+}
+    #content_wrapper {
+    }
+    #pad_wrapper {
+    }
+
+div.header {
+    padding: 5px;
+    cursor: move;
+    text-align: center;
+    font-weight: bold;
+    background-color: lightgray;
+    border-top: solid 1px transparent;
+    border-radius: 5px 5px 0 0;
+}
+
+div.menu {
+    height: 2em;
+    padding-top: 0.6em;
+    padding-right: 0.4em;
+    cursor: move;
+    text-align: right;
+    background-color: darkgrey;
+    border-bottom: solid 1px silver;
+}
+
+div.tool {
+    height: 2em;
+    padding-top: 0.6em;
+    padding-right: 0.4em;
+    text-align: right;
+    background-color: honeydew;
+    border-top: solid 1px silver;
+    border-radius: 0 0 5px 5px;
+}
+
+/* ************************************************************************* */
+    
+ul.feeds {
+    height: 200px;
+    padding: 0;
+    margin: 0;
+    overflow: auto;
+}
+    ul.feeds li {
+        list-style: none;
+        width: auto;
+        margin: 0;
+        padding: 4px;
+        border-bottom: 1px solid silver;
+    }
+
+a.feed_feeling {
+   padding: 2px;
+   margin-right: 0.5em;
+   background-color: lemonchiffon;
+   border-radius: 3px;
+}
+
+/* ************************************************************************* */
+
+a.command {
+    width: 90px;
+    height: 25px;
+    padding: 0.25em;
+    cursor: pointer;
+    color: white;
+    background: lightslategray;
+    border: 1px solid #aaaaaa;
+    border-radius: 5px;
+}
+    a.command:hover {
+        color: white;
+        background: darkgray;
+        border: 1px solid #d2b48c;
+        border-radius: 5px;
+    }
+    #open_command {
+    }
+    #close_command {
+    }
+    #send_command {
+    }
+    
+/* ************************************************************************* */
+
+table.entry {
+    padding: 0.5em;
+}
+    table.entry tbody td {
+        padding: 0.25em;
+    }
+
+td.entry_feeling_data {
+    height: 2.5em;
+}
+
+a.entry_feeling {
+   padding: 2px 5px 2px 5px;
+   margin-right: 0.5em;
+   cursor: pointer;
+   background-color: silver;
+   border-radius: 3px;
+}
+    #fine_entry_feeling {
+    }
+    #sad_entry_feeling {
+    }
+    #cool_entry_feeling {
+    }
+    #wonder_entry_feeling {
+    }

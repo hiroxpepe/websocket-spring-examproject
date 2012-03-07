@@ -38,10 +38,10 @@ public class SiteVisitorWebSocket implements WebSocket.OnTextMessage, Observer {
     private final ApplicationContext context = null;
     
     @Inject
-    private final Observable observable = null;
+    private final CopyOnWriteArraySet<SiteVisitorWebSocket> webSockets = null;
     
     @Inject
-    private final CopyOnWriteArraySet<SiteVisitorWebSocket> webSockets = null;
+    private final Observable observable = null;
     
     private WebSocket.Connection connection;
 
@@ -63,12 +63,15 @@ public class SiteVisitorWebSocket implements WebSocket.OnTextMessage, Observer {
         observable.addObserver(this);
 
         isConnect = true;
-        push();
     }
 
     @Override
     public void onMessage(String message) {
         LOG.info("onMessage");
+
+        // push a message to websocket client.
+        // in this case simply, message is send to all of websocket objects.
+        push(message);
     }
 
     @Override
@@ -87,7 +90,18 @@ public class SiteVisitorWebSocket implements WebSocket.OnTextMessage, Observer {
     public void update(Observable o, Object arg) {
         LOG.info("update");
         if (isConnect) {
-            push();
+            
+            // get a domain object.
+            // TODO: I will need to change to service object..
+            SiteVisitor visitor = context.getBean(
+                SITE_VISITOR_BEAN_ID, SiteVisitor.class
+            );
+            
+            // transform a domain object to a json string.
+            String message = ObjectUtil.toJsonString(visitor);
+            
+            // push a message to websocket client.
+            push(message);
         }
     }
     
@@ -95,19 +109,14 @@ public class SiteVisitorWebSocket implements WebSocket.OnTextMessage, Observer {
     // private methods
     
     // to notify the information to all of websocket objects.
-    private void push() {
+    private void push(String message) {
         try {
-            // get a domain object.
-            // TODO: need to change to factory object..
-            SiteVisitor visitor = context.getBean(
-                SITE_VISITOR_BEAN_ID, SiteVisitor.class
-            );
-            
             // set a message to all of connections.
             for (SiteVisitorWebSocket webSocket : webSockets) {
                 webSocket.connection.sendMessage(
-                    ObjectUtil.toJsonString(visitor)
+                    message
                 );
+                LOG.trace(message);
             }
         }
         catch(IOException ioe) {
