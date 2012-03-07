@@ -88,6 +88,14 @@ exam.Application = function(sender) {
 exam.Controller = window; {
 
     ///////////////////////////////////////////////////////////////////////////
+    // public methods
+
+    // init the controller class.
+    exam.Controller.init = function() {
+        exam.Controller._initComponent();
+    }
+
+    ///////////////////////////////////////////////////////////////////////////
     // event handler methods
 
     // an entry pad window be opened.
@@ -163,6 +171,9 @@ exam.Controller = window; {
         });
     }
 
+    ///////////////////////////////////////////////////////////////////////////
+    // private methods
+
     // init a component of the controller class.
     exam.Controller._initComponent = function() {
         
@@ -181,11 +192,6 @@ exam.Controller = window; {
         // and, do a some initialize.
         $("div.wrapper").draggable();
         $("#pad_wrapper").hide();
-    }
-
-    // init the controller class.
-    exam.Controller.init = function() {
-        exam.Controller._initComponent();
     }
 }
 
@@ -208,7 +214,7 @@ exam.CountryValueFactory = {
         // defalut is USA..
         return "USA";
     }
-};
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 /**
