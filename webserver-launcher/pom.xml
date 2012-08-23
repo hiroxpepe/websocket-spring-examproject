@@ -42,6 +42,39 @@
                     </connectors>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>net.alchim31.maven</groupId>
+                <artifactId>yuicompressor-maven-plugin</artifactId>
+                <version>1.1</version>
+                <executions>
+                    <execution>
+                        <id>compile</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>compress</goal>
+                        </goals>
+                        <configuration>
+                            <linebreakpos>0</linebreakpos>
+                            <encoding>UTF-8</encoding>
+                            <nosuffix>true</nosuffix>
+                            <aggregations>
+                                <aggregation>
+                                    <insertNewLine>true</insertNewLine>
+                                    <output>src/main/webapp/docroot/scripts/exmp-websocket.min.js</output>
+                                    <includes>
+                                        <include>src/exmp/__*.js</include>
+                                        <include>src/exmp/websocket/**/__*.js</include>
+                                        <include>src/exmp/websocket/**/*.js</include>
+                                    </includes>
+                                </aggregation>
+                            </aggregations>
+                            <excludes>
+                                <exclude>**/*.min.js</exclude>
+                            </excludes>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 </project>

@@ -21,26 +21,28 @@ body {
 /* ************************************************************************* */
 
 div.wrapper {
-    width: 250px;
+    width: 280px;
     margin-left: auto;
     margin-right: auto;
     background-color: white;
-    border: solid 1px silver;
-    border-radius: 5px;
+    border-left: 1px solid gainsboro;
+    border-right: 1px solid gainsboro;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-shadow: 0 0 4px 0 gainsboro;
 }
-    #content_wrapper {
+    #content-wrapper {
     }
-    #pad_wrapper {
+    #pad-wrapper {
     }
 
 div.header {
-    padding: 5px;
+    padding: 8px;
     cursor: move;
     text-align: center;
-    font-weight: bold;
-    background-color: lightgray;
-    border-top: solid 1px transparent;
-    border-radius: 5px 5px 0 0;
+    font-weight: bold;    
+    color: white;
+    background-color: #777799;
 }
 
 div.menu {
@@ -48,19 +50,19 @@ div.menu {
     padding-top: 0.6em;
     padding-right: 0.4em;
     cursor: move;
-    text-align: right;
-    background-color: darkgrey;
-    border-bottom: solid 1px silver;
+    text-align: right;    
+    color: white;
+    background-color: dimgray;
 }
 
 div.tool {
     height: 2em;
     padding-top: 0.6em;
     padding-right: 0.4em;
-    text-align: right;
-    background-color: honeydew;
-    border-top: solid 1px silver;
-    border-radius: 0 0 5px 5px;
+    text-align: right;    
+    color: white;
+    background-color: lavender;
+    border-top: solid 1px gainsboro;
 }
 
 /* ************************************************************************* */
@@ -76,10 +78,10 @@ ul.feeds {
         width: auto;
         margin: 0;
         padding: 4px;
-        border-bottom: 1px solid silver;
+        border-bottom: 1px solid gainsboro;
     }
 
-a.feed_feeling {
+a.feed-feeling {
    padding: 2px;
    margin-right: 0.5em;
    background-color: lemonchiffon;
@@ -94,21 +96,21 @@ a.command {
     padding: 0.25em;
     cursor: pointer;
     color: white;
-    background: lightslategray;
+    background-color: #777799;
     border: 1px solid #aaaaaa;
-    border-radius: 5px;
+    border-radius: 4px;
 }
     a.command:hover {
         color: white;
-        background: darkgray;
+        background-color: darkgray;
         border: 1px solid #d2b48c;
-        border-radius: 5px;
+        border-radius: 4px;
     }
-    #open_command {
+    #open-command {
     }
-    #close_command {
+    #close-command {
     }
-    #send_command {
+    #send-command {
     }
     
 /* ************************************************************************* */
@@ -120,22 +122,22 @@ table.entry {
         padding: 0.25em;
     }
 
-td.entry_feeling_data {
+td.entry-feeling-data {
     height: 2.5em;
 }
 
-a.entry_feeling {
+a.entry-feeling {
    padding: 2px 5px 2px 5px;
    margin-right: 0.5em;
    cursor: pointer;
    background-color: silver;
    border-radius: 3px;
 }
-    #fine_entry_feeling {
+    #fine-entry-feeling {
     }
-    #sad_entry_feeling {
+    #sad-entry-feeling {
     }
-    #cool_entry_feeling {
+    #cool-entry-feeling {
     }
-    #wonder_entry_feeling {
+    #wonder-entry-feeling {
     }
