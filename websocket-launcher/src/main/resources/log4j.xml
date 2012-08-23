@@ -26,7 +26,7 @@
         <priority value="info"/>
     </category>
 
-    <category name="com.hiroxpepe" >
+    <category name="org.examproject" >
         <priority value="trace"/>
     </category>
 

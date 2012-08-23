@@ -7,7 +7,7 @@
 
     <servlet>
         <servlet-name>springWebSocketServlet</servlet-name>
-        <servlet-class>com.hiroxpepe.web.SpringWebSocketServlet</servlet-class>
+        <servlet-class>org.examproject.websocket.SpringWebSocketServlet</servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
             <param-value>/WEB-INF/spring/websocket-config.xml</param-value>

@@ -4,14 +4,15 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.hiroxpepe</groupId>
+    <groupId>org.examproject</groupId>
     <artifactId>websocket-bean-impl</artifactId>
     <packaging>jar</packaging>
-    <version>0.3.0-SNAPSHOT</version>
+    <version>0.4.0-SNAPSHOT</version>
     <name>websocket-bean-impl</name>
 
     <properties>
-        <spring.version>3.1.1.RELEASE</spring.version>
+        <exmp.version>0.4.0-SNAPSHOT</exmp.version>
+        <spring.version>3.1.2.RELEASE</spring.version>
         <slf4j.version>1.5.10</slf4j.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -21,9 +22,9 @@
         <!-- USER LIB -->
         
         <dependency>
-            <groupId>com.hiroxpepe</groupId>
+            <groupId>org.examproject</groupId>
             <artifactId>websocket-socket-impl</artifactId>
-            <version>0.3.0-SNAPSHOT</version>
+            <version>${exmp.version}</version>
         </dependency>
         
         <!--///////////////////////////////////////////////////////////////////////////-->

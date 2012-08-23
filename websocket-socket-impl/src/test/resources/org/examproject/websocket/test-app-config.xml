@@ -2,13 +2,11 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:context="http://www.springframework.org/schema/context"
-    xsi:schemaLocation="http://www.springframework.org/schema/beans 
-    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
-    http://www.springframework.org/schema/context 
-    http://www.springframework.org/schema/context/spring-context-3.1.xsd">
-
-    <context:component-scan base-package="org.examproject.websocket" />
-    
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+   
     <!-- a global arrayset object. -->
     <bean id="copyOnWriteArraySet"
         class="java.util.concurrent.CopyOnWriteArraySet">
@@ -19,25 +17,18 @@
    
     <!-- a global observable object. -->
     <bean id="observable"
-        class="org.examproject.websocket.MockSiteVisitorObservable">
+        class="org.examproject.websocket.MockObservable">
     </bean>
-
+   
     <!-- a websocket object. -->
     <bean id="observerWebSocket"
         class="org.examproject.websocket.SiteVisitorWebSocket"
         scope="prototype">
     </bean>
     
-    <!-- an object for emulation of the data update. -->
-    <bean id="siteVisitorRunner" 
-        class="org.examproject.websocket.MockSiteVisitorRunner"
-        init-method="execute">
-    </bean>
-    
-    <!-- a domain object. -->
+    <!-- a domain object for test. -->
     <bean id="siteVisitor"
-        class="org.examproject.websocket.MockSiteVisitor"
-        factory-method="newInstance"
+        class="org.examproject.websocket.MockVisitor"
         scope="prototype">
     </bean>
 
